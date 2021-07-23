@@ -9,4 +9,4 @@ jobs:
           name: docker-compose up
           command: |
             set -x
-            docker-compose up --build -d
+            ./myproject/docker-compose up --build -d
