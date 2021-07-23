@@ -2,6 +2,7 @@
 
 {% block content %}
 <body>
+<<<<<<< HEAD
     <h1 class="block">投稿内容一覧表示画面</h1>
 
     
@@ -31,6 +32,9 @@
     
     {% endif %}
 
+=======
+    <h1>testApp</h1>    
+>>>>>>> origin/master
     <!-- 投稿内容一覧表示 -->
     <table>
         {% for item in data %}
@@ -50,7 +54,19 @@
             </tr>
         {% endfor %}
     </table>
+<<<<<<< HEAD
 
+=======
+    {% if data.has_previous %}
+        <a href = "{% url 'top' %}" >&laquo;first</a>
+        <a href = "{% url 'top' %}{{data.previous_page_number}}">&laquo;prev</a>
+    {% endif %}
+    現在{{ data.number }}ページ目
+    {% if data.has_next %}
+        <a href = "{% url 'top' %}{{data.next_page_number}}">next&raquo;</a>
+        <a href = "{% url 'top' %}{{data.end_index}}">last&raquo;</a>
+    {% endif %}
+>>>>>>> origin/master
 
 </body>
 {% endblock %}
