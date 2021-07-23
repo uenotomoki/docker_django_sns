@@ -4,4 +4,5 @@ jobs:
     docker:
       - image:  cimg/node:lts
     steps:
-      - run:  echo "hello world"
+      - run: yarn install
+      - run: yaran test
