@@ -4,6 +4,10 @@ jobs:
     docker:
       - image:  cimg/node:lts
     steps:
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ../myproject
       - run: echo "hello world"
       - setup_remote_docker
       - run:
@@ -16,4 +20,4 @@ jobs:
           name: docker-compose up
           command: |
             set -x
-            ../myproject/docker-compose up --build -d
+            docker-compose up --build -d
