@@ -5,4 +5,4 @@ jobs:
       - image:  cimg/node:lts
     steps:
       - run: yarn install
-      - run: yaran test
+      - run: yarn test
