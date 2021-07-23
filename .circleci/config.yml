@@ -4,12 +4,7 @@ jobs:
     docker:
       - image:  cimg/node:lts
     steps:
-      - persist_to_workspace:
-          root: .
-          paths:
-            - ../myproject
-      - run: echo "hello world"
-      - setup_remote_docker
+      - checkout
       - run:
           name: Install Docker Compose
           command: |
