@@ -1,4 +1,4 @@
-#cd django202107/github/pushtest/authtest/default_allauth
+#cd django202107/docker_django_sns/myproject
 #python manage.py runserver
 
 from django.views.generic import TemplateView
