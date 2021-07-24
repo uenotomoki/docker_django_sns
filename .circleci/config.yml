@@ -10,4 +10,5 @@ jobs:
           name: docker-compose up
           command: |
             set -x
+            path: ~/docker_django_sns/myproject
             docker-compose up --build -d
