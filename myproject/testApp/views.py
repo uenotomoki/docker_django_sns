@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 #cd django202107/docker_django_sns/myproject
-=======
 #cd django202107/github/pushtest/authtest/default_allauth
->>>>>>> origin/master
 #python manage.py runserver
 
 from django.views.generic import TemplateView
@@ -10,14 +8,12 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.db.models import Max
 from django.core.paginator import Paginator
-<<<<<<< HEAD
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import SnsMessageModel,SnsCommentModel
 from .forms import SnsMessageForm,SnsCommentForm
 #from .forms import ImageForm
 from . import nexthtml
-=======
 #from django.contrib.auth.decorators import login_required
 #from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
@@ -27,24 +23,6 @@ from .forms import SnsMessageForm,SnsCommentForm
 from .forms import ImageForm
 
 from .models import Image
-
-def showall(request):
-    images = Image.objects.all()
-    context = {'images':images}
-    return render(request, 'testApp/showall.html', context)
-
-def upload(request):
-    if request.method == "POST":
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect(to='/testApp/showall/')
-    else:
-        form = ImageForm()
-
-    context = {'form':form}
-    return render(request, 'testApp/upload.html', context)
->>>>>>> origin/master
 
 #投稿内容一覧表示クラス
 class TopView(TemplateView):
@@ -63,7 +41,6 @@ class TopView(TemplateView):
 
         #ログインユーザー情報を取得
         user = request.user
-<<<<<<< HEAD
         self.params['user'] = user
 
         #メッセージ情報の取得(ページネーション)
@@ -108,19 +85,6 @@ class TopView(TemplateView):
                 snsmessagemodel_id = SnsMessageModel.objects.filter(id=i)
                 self.params['data_comment_num'].append(SnsCommentModel.objects.filter(snsmessagemodel_id = snsmessagemodel_id[0]).count())
         """
-
-=======
-
-        data = SnsMessageModel.objects.all()
-        page = Paginator(data,3)
-        self.params['data'] = page.get_page(num)
-
-        data_user = User.objects.all()
-        page = Paginator(data_user,3)
-        self.params['data_user'] = page.get_page(num)
-        
-        self.params['user'] = user
->>>>>>> origin/master
         return render(request,'testApp/home.html',self.params)
 
 #自分の過去に投稿した記事一覧

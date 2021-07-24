@@ -2,9 +2,7 @@
 
 {% block content %}
 <body>
-<<<<<<< HEAD
     <h1 class="block">投稿内容一覧表示画面</h1>
-
     
     <nav class="navbar navbar-expand navbar-dark bg-info">
         <div class="mx-auto">
@@ -32,9 +30,8 @@
     
     {% endif %}
 
-=======
     <h1>testApp</h1>    
->>>>>>> origin/master
+
     <!-- 投稿内容一覧表示 -->
     <table>
         {% for item in data %}
@@ -54,9 +51,7 @@
             </tr>
         {% endfor %}
     </table>
-<<<<<<< HEAD
 
-=======
     {% if data.has_previous %}
         <a href = "{% url 'top' %}" >&laquo;first</a>
         <a href = "{% url 'top' %}{{data.previous_page_number}}">&laquo;prev</a>
@@ -66,7 +61,6 @@
         <a href = "{% url 'top' %}{{data.next_page_number}}">next&raquo;</a>
         <a href = "{% url 'top' %}{{data.end_index}}">last&raquo;</a>
     {% endif %}
->>>>>>> origin/master
 
 </body>
 {% endblock %}
