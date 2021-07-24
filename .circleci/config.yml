@@ -17,6 +17,7 @@ jobs:
           command: |
             ls
             cd myproject
+            ls
             set -x
             docker-compose up --build -d
       - run:
