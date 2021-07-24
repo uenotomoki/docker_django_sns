@@ -9,6 +9,6 @@ jobs:
       - run:
           name: docker-compose up
           command: |
-            pwd
+            echo pwd
             set -x
             docker-compose up --build 
