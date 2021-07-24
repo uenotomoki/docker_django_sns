@@ -19,7 +19,6 @@ jobs:
             cd myproject
             ls
             set -x
-            systemctl start docker
             docker-compose up --build -d
       - run:
           name: docker-compose stop
