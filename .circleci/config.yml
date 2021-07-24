@@ -9,6 +9,6 @@ jobs:
       - run:
           name: docker-compose up
           command: |
+            pwd
             set -x
-            path: ~/docker_django_sns/myproject
-            docker-compose up --build -d
+            docker-compose up --build 
