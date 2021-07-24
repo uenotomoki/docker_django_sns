@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image:  cimg/node:lts
+    working_directory: ~/docker_django_sns/myproject
     steps:
       - checkout
       - run:
