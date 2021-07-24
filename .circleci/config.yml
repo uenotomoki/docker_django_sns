@@ -13,5 +13,6 @@ jobs:
           command: |
             cd myproject
             #pip install --upgrade pip
-            pip install django --user 
+            pip install -r requirements.txt --user
+            #pip install django --user 
             python manage.py test
