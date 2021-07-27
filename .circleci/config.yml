@@ -12,7 +12,5 @@ jobs:
           name: Install Docker Compose
           command: |
             cd myproject
-            #pip install --upgrade pip
-            pip install -r requirements.txt --user
-            #pip install django --user 
-            python manage.py test
+            ls
+            docker-compose run web python manage.py test
