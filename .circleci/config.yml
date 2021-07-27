@@ -6,12 +6,23 @@ jobs:
     working_directory: ~/docker_django_sns/myproject
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
-          name: Install Docker Compose
+          name: フォルダ移動
+          command: cd myproject
+      - run:
+          name: データベースのmigrate
           command: |
-            cd myproject
-            docker-compose build
-            #pip install -r requirements.txt --user
-            #docker-compose run web  python manage.py test
+          docker-compose run web python3 manage.py makemigrations
+          docker-compose run web python3 manage.py migrate
+      - run:
+          name: Dockerコンテナのビルド
+          command: docker-compose build
+      - run:
+          name: django,test_views.py実行
+          command:　docker-compose run web python3 manage.py test
+      - run:
+          name: Dockerコンテナの起動
+          command: docker-compose up
+      - run:
+          name: Dockerコンテナの停止
+          command: docker-compose down
