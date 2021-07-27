@@ -6,11 +6,20 @@ jobs:
     working_directory: ~/docker_django_sns/myproject
     steps:
       - checkout
+        path: ~/docker_django_sns
+
+
+test:
+  docker:
+    - image: circleci/python:3.7.2
+    working_directory: ~/docker_django_sns/myproject
+    steps:
       - setup_remote_docker:
-          version: 19.03.13
-      - run:
-          name: Install Docker Compose
-          command: |
-            cd myproject
-            ls
-            docker-compose run web python manage.py test
+        version: 19.03.13
+        - run:
+            name: Docker Compose Test
+            command: |
+              #cd myproject
+              pwd
+              ls
+              docker-compose run web python manage.py test
