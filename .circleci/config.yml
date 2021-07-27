@@ -5,15 +5,16 @@ jobs:
       - image: circleci/python:3.7.2
     working_directory: ~/docker_django_sns/myproject
     steps:
-      - checkout
+      - checkout:
         path: ~/docker_django_sns
-
 
 test:
   docker:
     - image: circleci/python:3.7.2
     working_directory: ~/docker_django_sns/myproject
     steps:
+      - checkout:
+        path: ~/docker_django_sns
       - setup_remote_docker:
         version: 19.03.13
         - run:
