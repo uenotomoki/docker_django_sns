@@ -8,13 +8,13 @@ jobs:
       - checkout
       - run:
           name: Dockerコンテナのビルド
-          command: docker-compose -f /myproject/docker-compose.yml build
+          command: docker-compose -f myproject/docker-compose.yml build
       - run:
           name: django,test_views.py実行
-          command: docker-compose -f /myproject/docker-compose.yml run web python3 manage.py test
+          command: docker-compose -f myproject/docker-compose.yml run web python3 manage.py test
       - run:
           name: Dockerコンテナの起動
-          command: docker-compose -f /myproject/docker-compose.yml up
+          command: docker-compose -f myproject/docker-compose.yml up
       - run:
           name: Dockerコンテナの停止
-          command: docker-compose -f /myproject/docker-compose.yml down
+          command: docker-compose -f myproject/docker-compose.yml down
