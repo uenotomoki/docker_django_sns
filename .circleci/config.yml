@@ -20,6 +20,6 @@ jobs:
             cd myproject
             ls
             #docker-compose build
-            docker-compose run python ./manage.py test
+            docker-compose run web ./manage.py test
             #docker-compose run web python manage.py test
             ＃docker-compose -f myproject/docker-compose.yml run web python manage.py test
