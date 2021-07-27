@@ -5,6 +5,10 @@ jobs:
       - image: circleci/python:3.7.2
     working_directory: ~/docker_django_sns/myproject
     steps:
+      - save_cache:
+          key: my-cache
+          paths:
+            - /home/.circleci/docker_django_sns/myproject
       - checkout
       - setup_remote_docker:
           version: 19.03.13
@@ -15,6 +19,5 @@ jobs:
             ls
             cd myproject
             ls
-            paths: /home/.circleci/docker_django_sns/myproject
             docker-compose run web python manage.py test
             ＃docker-compose -f myproject/docker-compose.yml run web python manage.py test
