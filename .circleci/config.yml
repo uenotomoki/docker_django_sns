@@ -2,6 +2,16 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image:  cimg/node:lts
+      - image: circleci/python:3.7.2
+    working_directory: ~/docker_django_sns/myproject
     steps:
-      - run:  echo "hello world"
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: Install Docker Compose
+          command: |
+            cd myproject
+            docker-compose build
+            #pip install -r requirements.txt --user
+            #docker-compose run web  python manage.py test
