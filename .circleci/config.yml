@@ -9,6 +9,11 @@ jobs:
       - setup_remote_docker:
           version: 19.03.13
       - run:
-          command: cd myproject
-          command: pip install Django
+          name: docker-compose up
+          command: docker-compose up -d
+      - run:
+          name: docker ps
+          command: docker ps
+      - run:
+          name: test
           command: docker-compose run python ./manage.py test
