@@ -20,4 +20,4 @@ jobs:
           name: test
           command: |
             cd myproject
-            docker-compose run python ./manage.py test
+            docker-compose run web python ./manage.py test
