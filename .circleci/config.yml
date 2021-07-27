@@ -9,9 +9,4 @@ jobs:
       - setup_remote_docker:
           version: 19.03.13
       - run:
-          command: |
-            sudo pip install pipenv
-            pipenv install
-      - run:
-          command: |
-            pipenv run python /home/circleci/docker_django_sns/myproject/manage.py test
+          command: docker-compose run python ./manage.py test
