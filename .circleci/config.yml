@@ -7,17 +7,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: フォルダ移動
-          command: cd myproject
-      - run:
           name: Dockerコンテナのビルド
-          command: docker-compose build
+          command: docker-compose -f /myproject/docker-compose.yml build
       - run:
           name: django,test_views.py実行
-          command: docker-compose run web python3 manage.py test
+          command: docker-compose -f /myproject/docker-compose.yml run web python3 manage.py test
       - run:
           name: Dockerコンテナの起動
-          command: docker-compose up
+          command: docker-compose -f /myproject/docker-compose.yml up
       - run:
           name: Dockerコンテナの停止
-          command: docker-compose down
+          command: docker-compose -f /myproject/docker-compose.yml down
