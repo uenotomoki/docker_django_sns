@@ -14,5 +14,4 @@ jobs:
             pipenv install
       - run:
           command: |
-            cd /home/circleci/docker_django_sns/myproject
-            pipenv run python manage.py test
+            pipenv run python /home/circleci/docker_django_sns/myproject/manage.py test
