@@ -8,7 +8,7 @@ jobs:
       - save_cache:
           key: my-cache
           paths:
-            - /home/.circleci/docker_django_sns/myproject
+            - /home/.circleci/docker_django_sns/myproject/manage.py
       - checkout
       - setup_remote_docker:
           version: 19.03.13
@@ -17,7 +17,7 @@ jobs:
           command: |
             pwd
             ls
-            cd myproject
+            #cd myproject
             ls
             docker-compose build
             docker-compose run web python manage.py test
