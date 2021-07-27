@@ -3,4 +3,3 @@ psycopg2
 psycopg2-binary
 django-allauth>=0.32.0
 Pillow==7.2.0
-mysqlclient

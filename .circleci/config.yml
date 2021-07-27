@@ -5,22 +5,13 @@ jobs:
       - image: circleci/python:3.7.2
     working_directory: ~/docker_django_sns/myproject
     steps:
-      - checkout:
-        path: ~/docker_django_sns
-
-test:
-  docker:
-    - image: circleci/python:3.7.2
-  working_directory: ~/docker_django_sns/myproject
-  steps:
-    - checkout:
-      path: ~/docker_django_sns
-    - setup_remote_docker:
-      version: 19.03.13
-    - run:
-      name: Docker Compose Test
-      command: |
-        #cd myproject
-        pwd
-        ls
-        docker-compose run web python manage.py test
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          command: |
+            sudo pip install pipenv
+            pipenv install
+      - run:
+          command: |
+            pipenv run python manage.py test
