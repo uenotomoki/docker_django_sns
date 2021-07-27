@@ -19,8 +19,5 @@ jobs:
       - run:
           name: test
           command: |
-            cd myproject
             pwd
-            sudo pip install -r requirements.txt --user
-            #sudo pip install Django
             docker-compose run web python ./manage.py test
