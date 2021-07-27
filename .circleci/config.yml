@@ -10,8 +10,9 @@ jobs:
           version: 19.03.13
       - run:
           name: docker-compose up
-          command: cd myproject
-          command: docker-compose up -d
+          command: |
+            cd myproject
+            docker-compose up -d
       - run:
           name: docker ps
           command: docker ps
