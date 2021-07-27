@@ -18,4 +18,6 @@ jobs:
           command: docker ps
       - run:
           name: test
-          command: docker-compose run python ./manage.py test
+          command: |
+            cd myproject
+            docker-compose run python ./manage.py test
