@@ -6,6 +6,8 @@ jobs:
     working_directory: ~/docker_django_sns/myproject
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
           name: Dockerコンテナのビルド
           command: docker-compose -f myproject/docker-compose.yml build
