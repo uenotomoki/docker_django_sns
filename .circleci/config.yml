@@ -12,5 +12,6 @@ jobs:
           name: test
           command: |
             pwd
-            docker-compose run web sh -c "python manage.py test && flake8"
-            #docker-compose -f myproject/docker-compose.yml run web python ./manage.py test
+            ls
+            #docker-compose run web sh -c "python manage.py test && flake8"
+            docker-compose -f myproject/docker-compose.yml run web "python manage.py test"
