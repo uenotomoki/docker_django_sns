@@ -13,13 +13,14 @@ jobs:
       - checkout # ソース コードを作業ディレクトリにチェックアウト
       - setup_remote_docker:
           version: 19.03.13
-      - run:
-          name: Dockerコンテナのビルド
-          command: docker-compose -f myproject/docker-compose.yml build
+      #- run:
+          #name: Dockerコンテナのビルド
+          #command: docker-compose -f myproject/docker-compose.yml build
       - run:
           name: django,test_views.py実行
           command: |
-            cd myproject
+            cd /home/circleci/docker_django_sns/myproject
+            ls
             docker-compose run web python3 manage.py test
             #pwd
             #docker-compose -f myproject/docker-compose.yml run --workdir="/home/circleci/docker_django_sns/myproject" web python3 manage.py test
