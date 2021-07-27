@@ -12,4 +12,4 @@ jobs:
           name: test
           command: |
             pwd
-            docker-compose -f myproject/docker-compose.yml run web python ./manage.py test
+            docker-compose -f myproject/docker-compose.yml run -w myproject/ web python ./manage.py test
