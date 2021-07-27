@@ -21,10 +21,4 @@ jobs:
           command: |
             #cd myproject
             #docker-compose -f myproject/docker-compose.yml  run --workdir="/myproject" web python3 manage.py test
-            ls
-      - run:
-          name: Dockerコンテナの起動
-          command: docker-compose -f myproject/docker-compose.yml up
-      - run:
-          name: Dockerコンテナの停止
-          command: docker-compose -f myproject/docker-compose.yml down
+            pwd
