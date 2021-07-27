@@ -19,6 +19,7 @@ jobs:
       - run:
           name: django,test_views.py実行
           command: |
-            #cd myproject
+            cd myproject
+            docker-compose run web python3 manage.py test
             #pwd
-            docker-compose -f myproject/docker-compose.yml  run --workdir="/home/circleci/docker_django_sns/myproject" web python3 manage.py test
+            #docker-compose -f myproject/docker-compose.yml run --workdir="/home/circleci/docker_django_sns/myproject" web python3 manage.py test
