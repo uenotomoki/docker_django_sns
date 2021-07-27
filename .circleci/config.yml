@@ -1,16 +1,16 @@
 version: 2.1
 jobs:
   build:
+    working_directory: ~/docker_django_sns
     docker:
       - image: circleci/python:3.7.2
       - image: circleci/postgres:9.6-alpine
         environment:
-          - POSTGRES_DB=postgres
-          - POSTGRES_USER=postgres
-          - POSTGRES_PASSWORD=postgres
-    working_directory: ~/docker_django_sns/myproject
+          POSTGRES_DB=postgres
+          POSTGRES_USER=postgres
+          POSTGRES_PASSWORD=postgres
     steps:
-      - checkout
+      - checkout # ソース コードを作業ディレクトリにチェックアウト
       - setup_remote_docker:
           version: 19.03.13
       - run:
@@ -18,7 +18,9 @@ jobs:
           command: docker-compose -f myproject/docker-compose.yml build
       - run:
           name: django,test_views.py実行
-          command: docker-compose -f myproject/docker-compose.yml run web python3 manage.py test
+          command: |
+            #cd myproject
+            docker-compose run --workdir="myproject" web python3 manage.py test
       - run:
           name: Dockerコンテナの起動
           command: docker-compose -f myproject/docker-compose.yml up
