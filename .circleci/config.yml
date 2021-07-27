@@ -9,17 +9,12 @@ jobs:
       - run:
           name: フォルダ移動
           command: cd myproject
-      #- run:
-          #name: データベースのmigrate
-          #command: |
-          #docker-compose run web python3 manage.py makemigrations
-          #docker-compose run web python3 manage.py migrate
       - run:
           name: Dockerコンテナのビルド
           command: docker-compose build
       - run:
           name: django,test_views.py実行
-          command:　docker-compose run web python3 manage.py test
+          command:　python3 manage.py test
       - run:
           name: Dockerコンテナの起動
           command: docker-compose up
