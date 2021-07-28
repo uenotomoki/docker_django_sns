@@ -12,17 +12,12 @@ from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import SnsMessageModel,SnsCommentModel
 from .forms import SnsMessageForm,SnsCommentForm
-#from .forms import ImageForm
 from . import nexthtml
 #from django.contrib.auth.decorators import login_required
 #from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import SnsMessageModel,SnsCommentModel
 from .forms import SnsMessageForm,SnsCommentForm
-
-from .forms import ImageForm
-
-from .models import Image
 
 #投稿内容一覧表示クラス
 class TopView(TemplateView):
