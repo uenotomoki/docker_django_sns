@@ -1,6 +1,7 @@
 # docker_django_sns
 
 ■コメント画像投稿サイト
+
 ■URLXXX
 
 
@@ -51,6 +52,7 @@ https://github.com/uenotomoki/docker_django_sns.git
 
 ■gitクローンからdocker-composeよりdjango実行
 git clone https://github.com/uenotomoki/docker_django_sns.git
+
 docker-compose -f myproject/docker-compose.yml run --rm web python3 manage.py makemigrations
 docker-compose -f myproject/docker-compose.yml run --rm web python3 manage.py migrate
 docker-compose -f myproject/docker-compose.yml build
