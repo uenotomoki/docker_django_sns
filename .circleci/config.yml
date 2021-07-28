@@ -9,6 +9,6 @@ jobs:
       - setup_remote_docker:
           version: 19.03.13
       - run:
-          name: docker-compose build
+          name: docker-compose up
           command: |
-            command: docker-compose -f myproject/docker-compose.yml build
+            docker-compose -f myproject/docker-compose.yml build
