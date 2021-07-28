@@ -9,15 +9,6 @@ jobs:
       - setup_remote_docker:
           version: 19.03.13
       - run:
-          name: docker-compose up
+          name: docker-compose build
           command: |
-            cd myproject
-            docker-compose up -d
-      - run:
-          name: docker ps
-          command: docker ps
-      - run:
-          name: test
-          command: |
-            pwd
-            docker-compose run web python ./manage.py test
+            command: docker-compose -f myproject/docker-compose.yml build
