@@ -14,6 +14,9 @@ from pathlib import Path
 
 import os
 
+#herokuデプロイ用
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = BASE_DIR.joinpath('media')
@@ -26,8 +29,9 @@ MEDIA_URL = '/media/'
 SECRET_KEY = 'django-insecure-%5074g=0r$x8p!rx=0iw(w@(2sbxx3vojt!-51!lllo7%usv(v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
+#ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 ALLOWED_HOSTS = ["*"]
 
 
@@ -101,18 +105,6 @@ DATABASES = {
         'PORT': 5432,
     }
 }
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysqldb',
-        'USER': 'mysqlusr',
-        'HOST': 'localhost',
-        'PORT': 3306
-    }
-}
-'''
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -163,3 +155,7 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
+#heroku用
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)

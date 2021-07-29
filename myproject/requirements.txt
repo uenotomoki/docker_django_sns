@@ -3,3 +3,8 @@ psycopg2
 psycopg2-binary
 django-allauth>=0.32.0
 Pillow==7.2.0
+
+# herokuデプロイ用ライブラリ
+dj-database-url
+gunicorn
+whitenoise==3.0.0
