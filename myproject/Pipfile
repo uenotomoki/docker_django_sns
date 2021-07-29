@@ -10,6 +10,7 @@ django-allauth = ">=0.32.0"
 pipenv = "*"
 Django = "*"
 Pillow = "==7.2.0"
+dj-database-url = "*"
 
 [dev-packages]
 

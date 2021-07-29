@@ -8,3 +8,4 @@ RUN pip install -r requirements.txt
 COPY . /code/
 RUN pip install django-allauth
 RUN pip install pillow
+
