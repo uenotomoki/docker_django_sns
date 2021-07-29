@@ -8,4 +8,5 @@ RUN pip install -r requirements.txt
 COPY . /code/
 RUN pip install django-allauth
 RUN pip install pillow
+#RUN pipenv install dj-database-url==0.5.0
 
