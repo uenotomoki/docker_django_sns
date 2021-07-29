@@ -1,6 +1,6 @@
 import os
 
-#SECRET_KEY = 'nlk4rm9odxs%)jv3zv7luppk3p&s6_e4l0w+j_sip^ojg86k9$'
+SECRET_KEY = 'django-insecure-%5074g=0r$x8p!rx=0iw(w@(2sbxx3vojt!-51!lllo7%usv(v'
 
 #settings.pyからそのままコピー
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,4 +18,4 @@ DATABASES = {
     }
 }
 
-DEBUG = True
+#DEBUG = True
